@@ -126,13 +126,17 @@ body {
     margin-bottom: 0;
 }
 
+.h-flex {
+    display: flex;
+    column-gap: 16px;
+}
 /* ============================================
    5. UPLOAD AREA
    ============================================ */
 .upload-area {
     border: 2px dashed var(--border-color);
     border-radius: var(--border-radius);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg);
     text-align: center;
     cursor: pointer;
     transition: border-color var(--transition-normal);
@@ -146,9 +150,9 @@ body {
 }
 
 .upload-icon {
-    width: 48px;
-    height: 48px;
-    margin: 0 auto var(--spacing-md);
+    width: 24px;
+    height: 24px;
+    margin: 0 auto var(--spacing-xs);
     color: var(--text-secondary);
 }
 
@@ -369,8 +373,8 @@ body {
 /* Button Group */
 .btn-group {
     display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+    flex-direction:column ;
+    gap: var(--spacing-md);
 }
 
 /* ============================================

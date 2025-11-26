@@ -40,9 +40,9 @@
             const [invert, setInvert] = useState(false);
             const [fontSize, setFontSize] = useState(8);
             const [zoom, setZoom] = useState(100);
-            const [textColor, setTextColor] = useState('#00ff00');
+            const [textColor, setTextColor] = useState('#6BE2C0');
             const [backgroundColor, setBackgroundColor] = useState('#000000');
-            const [transparentBackground, setTransparentBackground] = useState(false);
+            const [transparentBackground, setTransparentBackground] = useState(true);
             const [originalImage, setOriginalImage] = useState(null);
             
             const canvasRef = useRef(null);
@@ -331,7 +331,6 @@
                                     onChange={(e) => setHeight(parseInt(e.target.value))}
                                     className="slider"
                                 />
-                                <p className="helper-text">Set to 0 for automatic height (maintains aspect ratio)</p>
                             </div>
 
                             {/* Character Set */}
@@ -380,54 +379,51 @@
                                 />
                             </div>
 
-                            <div className="divider"></div>
-
                             {/* Color Controls */}
                             <div className="panel-section">
-                                <h3 className="section-title">Output Colors</h3>
-                                
-                                {/* Text Color */}
-                                <div className="control-group">
-                                    <label className="control-label">Text Color</label>
-                                    <div className="color-picker-group">
-                                        <input
-                                            type="color"
-                                            value={textColor}
-                                            onChange={(e) => setTextColor(e.target.value)}
-                                            className="color-picker"
-                                        />
-                                        <input
-                                            type="text"
-                                            value={textColor}
-                                            onChange={(e) => setTextColor(e.target.value)}
-                                            className="text-input color-input"
-                                            placeholder="#00ff00"
-                                        />
+                                <div className="h-flex">
+                                    {/* Text Color */}
+                                    <div className="control-group">
+                                        <label className="control-label">Text</label>
+                                        <div className="color-picker-group">
+                                            <input
+                                                type="color"
+                                                value={textColor}
+                                                onChange={(e) => setTextColor(e.target.value)}
+                                                className="color-picker"
+                                            />
+                                            <input
+                                                type="text"
+                                                value={textColor}
+                                                onChange={(e) => setTextColor(e.target.value)}
+                                                className="text-input color-input"
+                                                placeholder="#00ff00"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Background Color */}
+                                    <div className="control-group">
+                                        <label className="control-label">Background</label>
+                                        <div className="color-picker-group">
+                                            <input
+                                                type="color"
+                                                value={backgroundColor}
+                                                onChange={(e) => setBackgroundColor(e.target.value)}
+                                                disabled={transparentBackground}
+                                                className="color-picker"
+                                            />
+                                            <input
+                                                type="text"
+                                                value={backgroundColor}
+                                                onChange={(e) => setBackgroundColor(e.target.value)}
+                                                disabled={transparentBackground}
+                                                className="text-input color-input"
+                                                placeholder="#000000"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
-
-                                {/* Background Color */}
-                                <div className="control-group">
-                                    <label className="control-label">Background Color</label>
-                                    <div className="color-picker-group">
-                                        <input
-                                            type="color"
-                                            value={backgroundColor}
-                                            onChange={(e) => setBackgroundColor(e.target.value)}
-                                            disabled={transparentBackground}
-                                            className="color-picker"
-                                        />
-                                        <input
-                                            type="text"
-                                            value={backgroundColor}
-                                            onChange={(e) => setBackgroundColor(e.target.value)}
-                                            disabled={transparentBackground}
-                                            className="text-input color-input"
-                                            placeholder="#000000"
-                                        />
-                                    </div>
-                                </div>
-
                                 {/* Transparent Background */}
                                 <div className="control-group">
                                     <label>
@@ -443,8 +439,6 @@
                                 </div>
 
                             </div>
-
-                            <div className="divider"></div>
 
                             {/* Invert Toggle */}
                             <div className="control-group">
@@ -475,15 +469,17 @@
                             
                             {asciiArt && (
                                 <div className="btn-group mt-3">
-                                    <button onClick={downloadASCII} className="btn btn-primary">
-                                        📄  Download as .txt
-                                    </button>
-                                    <button onClick={downloadAsPNG} className="btn btn-primary">
-                                        🖼️  Download as .png
-                                    </button>
-                                    <button onClick={downloadAsSVG} className="btn btn-primary">
-                                        ⚡  Download as .svg
-                                    </button>
+                                    <div className="h-flex">
+                                        <button onClick={downloadASCII} className="btn btn-primary">
+                                            ↓ .txt
+                                        </button>
+                                        <button onClick={downloadAsPNG} className="btn btn-primary">
+                                           ↓ .png
+                                        </button>
+                                        <button onClick={downloadAsSVG} className="btn btn-primary">
+                                            ↓ .svg
+                                        </button>
+                                    </div>
                                     <button onClick={copyToClipboard} className="btn btn-ghost">
                                         📋  Copy to Clipboard
                                     </button>
