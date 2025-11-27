@@ -58,7 +58,7 @@
 }
 
 body {
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Onest", sans-serif;
       color: var(--text-primary);
     background: var(--bg-main);
     min-height: 100vh;
@@ -69,7 +69,7 @@ body {
    3. LAYOUT
    ============================================ */
 .app-container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: var(--spacing-xl);
 }
@@ -130,11 +130,19 @@ body {
     display: flex;
     column-gap: 16px;
 }
+
+.h-flex > div {
+    width: 100%;
+}
+
+.mainPanel {
+    max-width: 100% !important;
+}
 /* ============================================
    5. UPLOAD AREA
    ============================================ */
 .upload-area {
-    border: 2px dashed var(--border-color);
+    border: 1px dashed var(--border-color);
     border-radius: var(--border-radius);
     padding: var(--spacing-lg);
     text-align: center;
@@ -401,7 +409,7 @@ body {
    ============================================ */
 .output-header {
     display: flex;
-    justify-content: space-between;
+    gap: 24px;
     align-items: center;
     margin-bottom: var(--spacing-md);
 }
@@ -439,7 +447,7 @@ body {
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
     overflow: auto;
-    max-height: 600px;
+    max-height: 100vh;
 }
 
 .ascii-art {
@@ -447,6 +455,8 @@ body {
     line-height: 1;
     margin: 0;
     white-space: pre;
+        max-width: 100%;
+
 }
 
 /* Transparency pattern */

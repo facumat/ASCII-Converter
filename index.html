@@ -13,9 +13,9 @@
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
- <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Root element - React app mounts here -->
@@ -424,35 +424,38 @@
                                         </div>
                                     </div>
                                 </div>
-                                {/* Transparent Background */}
-                                <div className="control-group">
-                                    <label>
-                                        <input
-                                            type="checkbox"
-                                            checked={transparentBackground}
-                                            onChange={(e) => setTransparentBackground(e.target.checked)}
-                                            className="checkbox"
-                                            id="transparent"
-                                        />
-                                        <span className="checkbox-label">Transparent background</span>
-                                    </label>
+                                <div className="h-flex">
+                                    {/* Transparent Background */}
+                                    <div className="control-group">
+                                        <label>
+                                            <input
+                                                type="checkbox"
+                                                checked={transparentBackground}
+                                                onChange={(e) => setTransparentBackground(e.target.checked)}
+                                                className="checkbox"
+                                                id="transparent"
+                                            />
+                                            <span className="checkbox-label">Transparent Bk</span>
+                                        </label>
+                                    </div>
+                                     {/* Invert Toggle */}
+                                    <div className="control-group">
+                                        <label>
+                                            <input
+                                                type="checkbox"
+                                                checked={invert}
+                                                onChange={(e) => setInvert(e.target.checked)}
+                                                className="checkbox"
+                                                id="invert"
+                                            />
+                                            <span className="checkbox-label">Invert</span>
+                                        </label>
+                                    </div>
                                 </div>
 
+
                             </div>
 
-                            {/* Invert Toggle */}
-                            <div className="control-group">
-                                <label>
-                                    <input
-                                        type="checkbox"
-                                        checked={invert}
-                                        onChange={(e) => setInvert(e.target.checked)}
-                                        className="checkbox"
-                                        id="invert"
-                                    />
-                                    <span className="checkbox-label">Invert (for light backgrounds)</span>
-                                </label>
-                            </div>
 
                             {/* Action Buttons */}
                             {originalImage && (
@@ -488,7 +491,7 @@
                         </aside>
 
                         {/* OUTPUT PANEL */}
-                        <main className="panel">
+                        <main className="panel mainPanel">
                             <div className="output-header">
                                 <h2 className="panel-header" style={{marginBottom: 0}}>Output</h2>
                                 {asciiArt && (
