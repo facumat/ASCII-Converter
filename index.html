@@ -281,196 +281,196 @@
                     <div className="main-grid">
                         {/* SETTINGS PANEL */}
                         <aside className="panel">
-
-                            {/* Upload Area */}
-                            <div
-                                className="upload-area"
-                                onDrop={handleDrop}
-                                onDragOver={handleDragOver}
-                                onClick={() => fileInputRef.current.click()}
-                            >
-                                <svg className="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                                </svg>
-                                <p className="upload-text">Click to upload or drag and drop</p>
-                                <p className="upload-subtext">PNG, JPG, GIF up to 10MB</p>
-                                <input
-                                    ref={fileInputRef}
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={handleFileChange}
-                                    className="upload-input"
-                                />
-                            </div>
-
-                            {/* Width Control */}
-                            <div className="control-group">
-                                <label className="control-label">
-                                    Width: {width} characters
-                                </label>
-                                <input
-                                    type="range"
-                                    min="20"
-                                    max="1000"
-                                    value={width}
-                                    onChange={(e) => setWidth(parseInt(e.target.value))}
-                                    className="slider"
-                                />
-                            </div>
-
-                            {/* Height Control */}
-                            <div className="control-group">
-                                <label className="control-label">
-                                    Height: {height === 0 ? 'Auto' : `${height} characters`}
-                                </label>
-                                <input
-                                    type="range"
-                                    min="0"
-                                    max="1000"
-                                    value={height}
-                                    onChange={(e) => setHeight(parseInt(e.target.value))}
-                                    className="slider"
-                                />
-                            </div>
-
-                            {/* Character Set */}
-                            <div className="control-group">
-                                <label className="control-label">Character Set</label>
-                                <select
-                                    value={charset}
-                                    onChange={(e) => setCharset(e.target.value)}
-                                    className="select"
+                            <div className="controls-actions">
+                                {/* Upload Area */}
+                                <div
+                                    className="upload-area"
+                                    onDrop={handleDrop}
+                                    onDragOver={handleDragOver}
+                                    onClick={() => fileInputRef.current.click()}
                                 >
-                                    <option value="detailed">Detailed (@#S%?*+;:,.)</option>
-                                    <option value="simple">Simple (@#*+=-:.)</option>
-                                    <option value="unicode">Unicode (█▓▒░:.)</option>
-                                    <option value="extended">Extended (#*+=-:.)</option>
-                                </select>
-                            </div>
-
-                            {/* Contrast Control */}
-                            <div className="control-group">
-                                <label className="control-label">
-                                    Contrast: {contrast.toFixed(1)}x
-                                </label>
-                                <input
-                                    type="range"
-                                    min="0.5"
-                                    max="3"
-                                    step="0.1"
-                                    value={contrast}
-                                    onChange={(e) => setContrast(parseFloat(e.target.value))}
-                                    className="slider"
-                                />
-                            </div>
-
-                            {/* Font Size Control */}
-                            <div className="control-group">
-                                <label className="control-label">
-                                    Display Font Size: {fontSize}px
-                                </label>
-                                <input
-                                    type="range"
-                                    min="4"
-                                    max="16"
-                                    value={fontSize}
-                                    onChange={(e) => setFontSize(parseInt(e.target.value))}
-                                    className="slider"
-                                />
-                            </div>
-
-                            {/* Color Controls */}
-                            <div className="panel-section">
-                                <div className="h-flex">
-                                    {/* Text Color */}
-                                    <div className="control-group">
-                                        <label className="control-label">Text</label>
-                                        <div className="color-picker-group">
-                                            <input
-                                                type="color"
-                                                value={textColor}
-                                                onChange={(e) => setTextColor(e.target.value)}
-                                                className="color-picker"
-                                            />
-                                            <input
-                                                type="text"
-                                                value={textColor}
-                                                onChange={(e) => setTextColor(e.target.value)}
-                                                className="text-input color-input"
-                                                placeholder="#00ff00"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    {/* Background Color */}
-                                    <div className="control-group">
-                                        <label className="control-label">Background</label>
-                                        <div className="color-picker-group">
-                                            <input
-                                                type="color"
-                                                value={backgroundColor}
-                                                onChange={(e) => setBackgroundColor(e.target.value)}
-                                                disabled={transparentBackground}
-                                                className="color-picker"
-                                            />
-                                            <input
-                                                type="text"
-                                                value={backgroundColor}
-                                                onChange={(e) => setBackgroundColor(e.target.value)}
-                                                disabled={transparentBackground}
-                                                className="text-input color-input"
-                                                placeholder="#000000"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="h-flex">
-                                    {/* Transparent Background */}
-                                    <div className="control-group">
-                                        <label>
-                                            <input
-                                                type="checkbox"
-                                                checked={transparentBackground}
-                                                onChange={(e) => setTransparentBackground(e.target.checked)}
-                                                className="checkbox"
-                                                id="transparent"
-                                            />
-                                            <span className="checkbox-label">Transparent Bk</span>
-                                        </label>
-                                    </div>
-                                     {/* Invert Toggle */}
-                                    <div className="control-group">
-                                        <label>
-                                            <input
-                                                type="checkbox"
-                                                checked={invert}
-                                                onChange={(e) => setInvert(e.target.checked)}
-                                                className="checkbox"
-                                                id="invert"
-                                            />
-                                            <span className="checkbox-label">Invert</span>
-                                        </label>
-                                    </div>
+                                    <svg className="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                    </svg>
+                                    <p className="upload-text">Click to upload or drag and drop</p>
+                                    <p className="upload-subtext">PNG, JPG, GIF up to 10MB</p>
+                                    <input
+                                        ref={fileInputRef}
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleFileChange}
+                                        className="upload-input"
+                                    />
                                 </div>
 
+                                {/* Width Control */}
+                                <div className="control-group">
+                                    <label className="control-label">
+                                        Width: {width} characters
+                                    </label>
+                                    <input
+                                        type="range"
+                                        min="20"
+                                        max="1000"
+                                        value={width}
+                                        onChange={(e) => setWidth(parseInt(e.target.value))}
+                                        className="slider"
+                                    />
+                                </div>
 
-                            </div>
+                                {/* Height Control */}
+                                <div className="control-group">
+                                    <label className="control-label">
+                                        Height: {height === 0 ? 'Auto' : `${height} characters`}
+                                    </label>
+                                    <input
+                                        type="range"
+                                        min="0"
+                                        max="1000"
+                                        value={height}
+                                        onChange={(e) => setHeight(parseInt(e.target.value))}
+                                        className="slider"
+                                    />
+                                </div>
 
-
-                            {/* Action Buttons */}
-                            {originalImage && (
-                                <div className="btn-group">
-                                    <button
-                                        onClick={rerunConversion}
-                                        disabled={loading}
-                                        className="btn btn-accent"
+                                {/* Character Set */}
+                                <div className="control-group">
+                                    <label className="control-label">Character Set</label>
+                                    <select
+                                        value={charset}
+                                        onChange={(e) => setCharset(e.target.value)}
+                                        className="select"
                                     >
-                                        {loading ? 'Converting...' : '↻  Rerun Conversion'}
-                                    </button>
+                                        <option value="detailed">Detailed (@#S%?*+;:,.)</option>
+                                        <option value="simple">Simple (@#*+=-:.)</option>
+                                        <option value="unicode">Unicode (█▓▒░:.)</option>
+                                        <option value="extended">Extended (#*+=-:.)</option>
+                                    </select>
                                 </div>
-                            )}
-                            
-                            {asciiArt && (
+
+                                {/* Contrast Control */}
+                                <div className="control-group">
+                                    <label className="control-label">
+                                        Contrast: {contrast.toFixed(1)}x
+                                    </label>
+                                    <input
+                                        type="range"
+                                        min="0.5"
+                                        max="3"
+                                        step="0.1"
+                                        value={contrast}
+                                        onChange={(e) => setContrast(parseFloat(e.target.value))}
+                                        className="slider"
+                                    />
+                                </div>
+
+                                {/* Font Size Control */}
+                                <div className="control-group">
+                                    <label className="control-label">
+                                        Display Font Size: {fontSize}px
+                                    </label>
+                                    <input
+                                        type="range"
+                                        min="4"
+                                        max="16"
+                                        value={fontSize}
+                                        onChange={(e) => setFontSize(parseInt(e.target.value))}
+                                        className="slider"
+                                    />
+                                </div>
+
+                                {/* Color Controls */}
+                                <div className="panel-section">
+                                    <div className="h-flex">
+                                        {/* Text Color */}
+                                        <div className="control-group">
+                                            <label className="control-label">Text</label>
+                                            <div className="color-picker-group">
+                                                <input
+                                                    type="color"
+                                                    value={textColor}
+                                                    onChange={(e) => setTextColor(e.target.value)}
+                                                    className="color-picker"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={textColor}
+                                                    onChange={(e) => setTextColor(e.target.value)}
+                                                    className="text-input color-input"
+                                                    placeholder="#00ff00"
+                                                />
+                                            </div>
+                                        </div>
+
+                                        {/* Background Color */}
+                                        <div className="control-group">
+                                            <label className="control-label">Background</label>
+                                            <div className="color-picker-group">
+                                                <input
+                                                    type="color"
+                                                    value={backgroundColor}
+                                                    onChange={(e) => setBackgroundColor(e.target.value)}
+                                                    disabled={transparentBackground}
+                                                    className="color-picker"
+                                                />
+                                                <input
+                                                    type="text"
+                                                    value={backgroundColor}
+                                                    onChange={(e) => setBackgroundColor(e.target.value)}
+                                                    disabled={transparentBackground}
+                                                    className="text-input color-input"
+                                                    placeholder="#000000"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="h-flex">
+                                        {/* Transparent Background */}
+                                        <div className="control-group">
+                                            <label>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={transparentBackground}
+                                                    onChange={(e) => setTransparentBackground(e.target.checked)}
+                                                    className="checkbox"
+                                                    id="transparent"
+                                                />
+                                                <span className="checkbox-label">Transparent Bk</span>
+                                            </label>
+                                        </div>
+                                        {/* Invert Toggle */}
+                                        <div className="control-group">
+                                            <label>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={invert}
+                                                    onChange={(e) => setInvert(e.target.checked)}
+                                                    className="checkbox"
+                                                    id="invert"
+                                                />
+                                                <span className="checkbox-label">Invert</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div className="output-actions">
+                                {/* Action Buttons */}
+                                {originalImage && (
+                                    <div className="btn-group">
+                                        <button
+                                            onClick={rerunConversion}
+                                            disabled={loading}
+                                            className="btn btn-accent"
+                                        >
+                                            {loading ? 'Converting...' : '↻  Rerun Conversion'}
+                                        </button>
+                                    </div>
+                                )}
+                                
+                                {asciiArt && (
                                 <div className="btn-group mt-3">
                                     <div className="h-flex">
                                         <button onClick={downloadASCII} className="btn btn-primary">
@@ -487,7 +487,8 @@
                                         📋  Copy to Clipboard
                                     </button>
                                 </div>
-                            )}
+                                )}
+                            </div>
                         </aside>
 
                         {/* OUTPUT PANEL */}

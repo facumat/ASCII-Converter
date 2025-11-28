@@ -18,7 +18,7 @@
     
     /* Backgrounds */
     --bg-main: linear-gradient(to bottom right, #030A19, #030A19);
-    --bg-panel: #ffffff10;
+    --bg-panel: #131928;
     --bg-panel-light: #030A19;
     --bg-input: #1C2330;
     --bg-output: #000000;
@@ -72,11 +72,34 @@ body {
     max-width: 100%;
     margin: 0 auto;
     padding: var(--spacing-xl);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.controls-actions {
+    padding: var(--spacing-lg);
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    padding-bottom: var(--spacing-md);
+    min-height: 0; /* Important! */
+}
+
+
+.output-actions {
+    padding: var(--spacing-lg);
+    margin-top: auto;
+    padding-top: var(--spacing-md);
+    flex-shrink: 0; /* Don't shrink buttons */
+    box-shadow: 0 0 32px 32px #131928;
 }
 
 .app-header {
     text-align: center;
     margin-bottom: var(--spacing-xl);
+    flex-shrink: 0; /* Don't shrink header */
 }
 
 .app-title {
@@ -94,6 +117,8 @@ body {
     display: grid;
     grid-template-columns: 380px 1fr;
     gap: var(--spacing-lg);
+    flex: 1; /* Take remaining space */
+    min-height: 0; /* Important! Allows overflow to work */
 }
 
 /* Responsive: Stack on smaller screens */
@@ -109,7 +134,10 @@ body {
 .panel {
     background: var(--bg-panel);
     border-radius: var(--border-radius-lg);
-    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Important! */
+    overflow: hidden; /* Prevent panel itself from growing */
 }
 
 .panel-header {
@@ -136,6 +164,7 @@ body {
 }
 
 .mainPanel {
+    padding: var(--spacing-lg);
     max-width: 100% !important;
 }
 /* ============================================
@@ -444,10 +473,12 @@ body {
 }
 
 .output-display {
+
     border-radius: var(--border-radius);
     padding: var(--spacing-md);
     overflow: auto;
-    max-height: 100vh;
+    flex: 1; /* Take available space */
+    min-height: 0; /* Important! */
 }
 
 .ascii-art {
